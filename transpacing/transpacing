@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+import sys
+import os, shutil
+import fontforge
+
+if len(sys.argv) != 4:
+    print "Usage: <source font> <target font> <output filename>"
+    sys.exit()
+
+print sys.argv[1]
+print sys.argv[2]
+print sys.argv[3]
+
+# SOURCE = os.path.abspath('./sources/DejaVuSansCondensed-Bold.ttf')
+# TARGET = os.path.abspath('./sources/PropCourierSans-Bold.ttf')
+# OUTFILE = TARGET.replace('sources/', '')
+
+SOURCE = os.path.abspath(sys.argv[1])
+TARGET = os.path.abspath(sys.argv[2])
+OUTFILE = os.path.abspath(sys.argv[3])
+
+source_font = fontforge.open(SOURCE)
+target_font = fontforge.open(TARGET)
+
+FACTOR = target_font.capHeight / source_font.capHeight
+
+for glyphname in source_font:
+    if glyphname.startswith(('uni', '.', 'nonmarking', 'space')):
+        continue
+    g = source_font[glyphname]
+    w = int(g.width * FACTOR)
+    lsb = int(g.left_side_bearing * FACTOR)
+    rsb = int(g.right_side_bearing * FACTOR)
+    glyph_width = int(w - lsb - rsb)
+
+    if glyphname in target_font:
+        target_font[glyphname].width = w
+        target_font[glyphname].left_side_bearing = lsb
+        target_font[glyphname].right_side_bearing = rsb
+
+target_font.generate(OUTFILE)
