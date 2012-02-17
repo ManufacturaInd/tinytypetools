@@ -1,0 +1,36 @@
+#!/usr/bin/fontforge
+
+effect = "Inline"
+
+Open($1)
+SelectWorthOutputting()
+
+if ($argc == 4)
+  # convert arguments to int
+  width = Strtol($2)
+  gap = Strtol($3)
+
+  foreach
+    # we have to do this, otherwise some glyphs may be garbled
+    CorrectDirection()
+    # apply effect
+    Inline(width, gap)
+  endloop
+
+  # change weight name
+  new_fontname = $fontname + "-" + effect
+  # FIXME: The weight name does not change for some reason!
+  new_weightname = $weight + " " + effect
+  new_fullname = $fullname + " " + effect
+  SetFontNames(new_fontname, $familyname, new_fullname, new_weightname)
+  
+  # create new font
+  Generate($1:r + "-" + effect + ".ttf")
+
+else
+  Print(" ")
+  Print("ERROR: Inline filter requires 3 arguments:")
+  Print("  - Input filename")
+  Print("  - Outline width")
+  Print("  - Gap")
+endif

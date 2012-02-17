@@ -1,0 +1,34 @@
+#!/usr/bin/fontforge -script
+
+Open($1)
+SelectWorthOutputting()
+
+effect = "Outline"
+
+if ($argc == 3)
+  # convert arguments to int
+  width = Strtol($2)
+
+  foreach
+    # we have to do this, otherwise some glyphs may be garbled
+    CorrectDirection()
+    # apply effect
+    Outline(width)
+  endloop
+
+  # change weight name
+  new_fontname = $fontname + "-" + effect
+  # FIXME: The weight name does not change for some reason!
+  new_weightname = $weight + " " + effect
+  new_fullname = $fullname + " " + effect
+  SetFontNames(new_fontname, $familyname, new_fullname, new_weightname)
+  
+  # create new font
+  Generate($1:r + "-" + effect + ".ttf")
+
+else
+  Print(" ")
+  Print("ERROR: Outline filter requires 2 arguments:")
+  Print("  - Input filename")
+  Print("  - Outline width")
+endif
