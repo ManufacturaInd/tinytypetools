@@ -9,7 +9,10 @@ The main purpose is to grab a .sfd file and output all the formats necessary for
 Dependencies
 ------------
 
-You'll require the ttf2eot command line utility in order to output to EOT (Embedded OpenType).
+You need Fontforge compiled with Python support. 
+Most distros will come with this out of the box through their package manager.
+
+You'll also require the ttf2eot command line utility in order to output to EOT (Embedded OpenType).
 You can find the application at http://code.google.com/p/ttf2eot/ , along with instructions on how to compile it.
 Place the ttf2eot binary anywhere in your PATH, and you're set.
 
