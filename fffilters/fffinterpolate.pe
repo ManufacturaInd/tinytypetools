@@ -5,10 +5,11 @@ effect = "Interpolate"
 Open($1)
 SelectWorthOutputting()
 
-if ($argc == 4)
+if ($argc == 5)
   # convert arguments to int
   secondfont = $2
-  percent = Strtol($3)
+  outfile = $3
+  percent = Strtol($4)
 
   Print(secondfont)
 
@@ -31,8 +32,9 @@ if ($argc == 4)
 
 else
   Print(" ")
-  Print("ERROR: Interpolate requires 3 arguments:")
+  Print("ERROR: Interpolate requires 4 arguments:")
   Print("  - First font filename")
   Print("  - Second font filename")
+  Print("  - Output font filename")
   Print("  - Percentage (can be negative or over 100 for extrapolation)")
 endif

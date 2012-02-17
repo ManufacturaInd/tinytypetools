@@ -5,11 +5,12 @@ effect = "Shadow"
 Open($1)
 SelectWorthOutputting()
 
-if ($argc == 5)
+if ($argc == 6)
+  outfile = $2
   # convert arguments to int
-  angle = Strtol($2)
-  outlinewidth = Strtol($3)
-  shadowwidth = Strtol($4)
+  angle = Strtol($3)
+  outlinewidth = Strtol($4)
+  shadowwidth = Strtol($5)
 
   foreach
     # we have to do this, otherwise some glyphs may be garbled
@@ -26,12 +27,13 @@ if ($argc == 5)
   SetFontNames(new_fontname, $familyname, new_fullname, new_weightname)
   
   # create new font
-  Generate($1:r + "-" + effect + ".ttf")
+  Generate($outfile)
 
 else
   Print(" ")
-  Print("ERROR: Shadow filter requires 4 arguments:")
+  Print("ERROR: Shadow filter requires 5 arguments:")
   Print("  - Input filename")
+  Print("  - Output filename")
   Print("  - Shadow angle in degrees")
   Print("  - Outline width")
   Print("  - Shadow width")

@@ -5,10 +5,11 @@ effect = "Inline"
 Open($1)
 SelectWorthOutputting()
 
-if ($argc == 4)
+if ($argc == 5)
+  outfile = $2
   # convert arguments to int
-  width = Strtol($2)
-  gap = Strtol($3)
+  width = Strtol($4)
+  gap = Strtol($5)
 
   foreach
     # we have to do this, otherwise some glyphs may be garbled
@@ -25,12 +26,13 @@ if ($argc == 4)
   SetFontNames(new_fontname, $familyname, new_fullname, new_weightname)
   
   # create new font
-  Generate($1:r + "-" + effect + ".ttf")
+  Generate($2)
 
 else
   Print(" ")
-  Print("ERROR: Inline filter requires 3 arguments:")
+  Print("ERROR: Inline filter requires 4 arguments:")
   Print("  - Input filename")
+  Print("  - Output filename")
   Print("  - Outline width")
   Print("  - Gap")
 endif

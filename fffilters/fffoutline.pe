@@ -5,9 +5,10 @@ SelectWorthOutputting()
 
 effect = "Outline"
 
-if ($argc == 3)
+if ($argc == 4)
+  outfile = $2
   # convert arguments to int
-  width = Strtol($2)
+  width = Strtol($3)
 
   foreach
     # we have to do this, otherwise some glyphs may be garbled
@@ -28,7 +29,8 @@ if ($argc == 3)
 
 else
   Print(" ")
-  Print("ERROR: Outline filter requires 2 arguments:")
+  Print("ERROR: Outline filter requires 3 arguments:")
   Print("  - Input filename")
+  Print("  - Output filename")
   Print("  - Outline width")
 endif

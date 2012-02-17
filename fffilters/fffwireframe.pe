@@ -30,8 +30,9 @@ if ($argc == 5)
 
 else
   Print(" ")
-  Print("ERROR: Wireframe filter requires 4 arguments:")
+  Print("ERROR: Wireframe filter requires 5 arguments:")
   Print("  - Input filename")
+  Print("  - Output filename")
   Print("  - Wireframe angle in degrees")
   Print("  - Outline width")
   Print("  - Wireframe width")
