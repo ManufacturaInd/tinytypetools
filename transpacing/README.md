@@ -35,5 +35,5 @@ So, in order to take the spacings from dejavusans.ttf, apply them to notcourier.
 License
 -------
 
-Transpacing is (c) 2012 Manufactura Independente (Ana Carvalho & Ricardo Lafuente)
+Transpacing is (c) 2012 [Manufactura Independente](http://manufacturaindependente.org) (Ana Carvalho & Ricardo Lafuente)
 Licensed under the GPL v3 or later version.

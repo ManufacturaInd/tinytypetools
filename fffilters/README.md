@@ -45,7 +45,8 @@ Parameters:
   * Shadow depth
 
 Example:
-  fffshadow.pe Douar.sfd Douar-Shadow.ttf 45 30 50 
+
+    fffshadow.pe Douar.sfd Douar-Shadow.ttf 45 30 50 
 
 
 fffwireframe.pe
@@ -61,7 +62,8 @@ Parameters:
   * Shadow depth
 
 Example:
-  fffshadow.pe Douar.sfd Douar-Wireframe.ttf 85 20 35 
+
+    fffshadow.pe Douar.sfd Douar-Wireframe.ttf 85 20 35 
 
 
 fffinline.pe
@@ -76,7 +78,8 @@ Parameters:
   * Gap
 
 Example:
-  fffinline.pe Douar.sfd Douar-Inline.ttf 20 40
+
+    fffinline.pe Douar.sfd Douar-Inline.ttf 20 40
 
 
 fffoutline.pe
@@ -90,21 +93,8 @@ Parameters:
   * Outline width
 
 Example:
-  fffoutline.pe Douar.sfd Douar-Inline.ttf 25
-
-
-fffoutline.pe
------------
-
-This applies an inline fill along with an outline.
-
-Parameters:
-  * Input file name
-  * Output file name
-  * Outline width
-
-Example:
-  fffoutline.pe Douar.sfd Douar-Inline.ttf 25
+ 
+    fffoutline.pe Douar.sfd Douar-Inline.ttf 25
 
 
 fffinterpolate.pe
@@ -119,11 +109,12 @@ Parameters:
   * Percentage (50% is a halfway interpolation, negative or over 100% values apply extrapolation)
 
 Example:
-  fffinterpolate.pe Douar.sfd Douar-Bold.sfd Douar-Semibold.ttf 50
+
+    fffinterpolate.pe Douar.sfd Douar-Bold.sfd Douar-Semibold.ttf 50
 
 
 License
 -------
 
-All the FFfilters are (c) 2012 Manufactura Independente (Ana Carvalho & Ricardo Lafuente)
+All the FFfilters are (c) 2012 [Manufactura Independente](http://manufacturaindependente.org) (Ana Carvalho & Ricardo Lafuente)
 Licensed under the GPL v3 or later version.

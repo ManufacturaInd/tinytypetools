@@ -23,5 +23,5 @@ ttf2eot can be found at http://code.google.com/p/ttf2eot/
 License
 =======
 
-(c) 2012 Manufactura Independente (Ana Carvalho & Ricardo Lafuente)
+(c) 2012 [Manufactura Independente](http://manufacturaindependente.org) (Ana Carvalho & Ricardo Lafuente)
 Licensed under the GPL v3 or later version.

@@ -55,5 +55,5 @@ Or, more simply,
 License
 -------
 
-Fontconvert is (c) 2012 Manufactura Independente (Ana Carvalho & Ricardo Lafuente)
+Fontconvert is (c) 2012 [Manufactura Independente](http://manufacturaindependente.org) (Ana Carvalho & Ricardo Lafuente)
 Licensed under the GPL v3 or later version.
