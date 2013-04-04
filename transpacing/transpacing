@@ -30,4 +30,15 @@ for glyphname in source_font:
         target_font[glyphname].left_side_bearing = lsb
         target_font[glyphname].right_side_bearing = rsb
 
-target_font.generate(OUTFILE)
+    # addPosSub(subtable-name,other-glyph-name,kerning)
+    # addKerningClass(lookup-name,new-subtable-name,
+    #first-classes, second-classes, offsets [,after])
+
+# copy GPOS/kerning tables
+lookup_name = source_font.gpos_lookups[0]
+target_font.importLookups(source_font, (lookup_name,))
+
+if OUTFILE.endswith('sfd'):
+    target_font.save(OUTFILE)
+else:
+    target_font.generate(OUTFILE)
