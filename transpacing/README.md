@@ -1,10 +1,9 @@
-
 Transpacing
 ===========
 
 This script transplants spacing information from one font to another.
 
-We wrote this while working on PropCourier Sans, a proportional version of the monospaced font NotCourier Sans. At first we re-adjusted the spacings by hand, but soon realized it would be handy to have a tool to get spacings from an existing libre font and apply them to another. Thus, the transpacing script was born.
+We wrote this while working on PropCourier Sans, a proportional version of the monospaced font [NotCourier Sans](http://ospublish.constantvzw.org/foundry/notcouriersans/). At first we re-adjusted the spacings by hand, but soon realized it would be handy to have a tool to get spacings from an existing libre font and apply them to another. Thus, the transpacing script was born.
 
 Dependencies
 ------------
@@ -27,10 +26,16 @@ Transpacing requires three arguments:
 - The font to apply the spacings to (will not be modified)
 - The resulting font file name
 
-So, in order to take the spacings from dejavusans.ttf, apply them to notcourier.ttf and output propcourier.ttf, the command would be:
+For example, in order to take the spacings from `dejavusans.ttf`, apply them to `notcourier.ttf` and output `propcourier.ttf`, the command would be:
 
-  transpacing dejavusans.ttf notcourier.ttf propcourier.ttf
+    transpacing dejavusans.ttf notcourier.ttf propcourier.ttf
+    
+Font licensing issues
+---------------------
 
+In their EULAs, most proprietary fonts explicitly forbid redistribution of modified versions. Some might also restrict analysis of the source code. You are responsible for ensuring you are not violating the font's license by using this tool.
+
+Or you can just use libre fonts and live without worries.
 
 License
 -------
