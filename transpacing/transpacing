@@ -4,6 +4,7 @@ import os, shutil
 import fontforge
 
 if len(sys.argv) != 4:
+    # lazy designer's argparse
     print "Usage: <source font> <target font> <output filename>"
     sys.exit()
 
@@ -14,15 +15,21 @@ OUTFILE = os.path.abspath(sys.argv[3])
 source_font = fontforge.open(SOURCE)
 target_font = fontforge.open(TARGET)
 
+# calculate the ratio between differing font heights so we can 
+# adjust spacings accordingly
 FACTOR = target_font.capHeight / source_font.capHeight
 
 for glyphname in source_font:
     if glyphname.startswith(('uni', '.', 'nonmarking', 'space')):
+        # don't mess with spaces and other special chars
         continue
     g = source_font[glyphname]
+    # calculate new width
     w = int(g.width * FACTOR)
+    # apply new side bearings
     lsb = int(g.left_side_bearing * FACTOR)
     rsb = int(g.right_side_bearing * FACTOR)
+    # determine width from total minus bearings
     glyph_width = int(w - lsb - rsb)
 
     if glyphname in target_font:
@@ -30,14 +37,11 @@ for glyphname in source_font:
         target_font[glyphname].left_side_bearing = lsb
         target_font[glyphname].right_side_bearing = rsb
 
-    # addPosSub(subtable-name,other-glyph-name,kerning)
-    # addKerningClass(lookup-name,new-subtable-name,
-    #first-classes, second-classes, offsets [,after])
-
 # copy GPOS/kerning tables
 lookup_name = source_font.gpos_lookups[0]
 target_font.importLookups(source_font, (lookup_name,))
 
+# all done, save it
 if OUTFILE.endswith('sfd'):
     target_font.save(OUTFILE)
 else:
