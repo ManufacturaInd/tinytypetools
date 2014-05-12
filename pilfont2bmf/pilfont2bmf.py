@@ -27,6 +27,9 @@ for char in chars:
     if char in punctuation:
         charname = '_' + unicodedata.name(char)
         filename = charname.lower().replace(' ', '').replace('-', '')
+    # use Cap suffix for capitals (e.g. "aCap" for A)
+    elif char in ascii_uppercase:
+        filename = char.lower() + "Cap"
     else:
         # we use the HTML entities definition for these
         try:
