@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+# Convert a .pil font file to the BMF font format.
+
+# TODO: DOCUMENTATION!
+# I'm rushing to finish another script, no time to write docs atm :|
+# Pester us if you need more info on usage, we're at hi at manufacturaindependente.org
+
 import sys, os
 from PIL import ImageFont
 import unicodedata
