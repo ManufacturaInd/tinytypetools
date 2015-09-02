@@ -119,7 +119,7 @@ if options.simplify:
     print "Simplifying..."
     for glyph in font.glyphs():
         glyph.simplify()
-if options.remove_overlap:
+if options.correct_directions:
     print "Correcting directions..."
     for glyph in font.glyphs():
         glyph.correctDirection()
