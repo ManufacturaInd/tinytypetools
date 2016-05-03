@@ -48,6 +48,12 @@ parser.add_option('--no-hinting',
                   default=False,
                   help='Include TrueType hinting data'
                   )
+parser.add_option('--unlink-reference',
+                  dest="unlink_reference",
+                  action="store_true",
+                  default=False,
+                  help='Unlink references in glyphs'
+                  )
 parser.add_option('--round-points',
                   dest="round_points",
                   action="store_true",
@@ -103,6 +109,10 @@ svg_filename = d + basename + '.svg'
 eot_filename = d + basename + '.eot'
 ufo_filename = d + basename + '.ufo'
 
+if options.unlink_reference:
+    print "Unlinking references..."
+    for glyph in font.glyphs():
+        glyph.unlinkRef()
 if options.round_points:
     print "Rounding points to int values..."
     for glyph in font.glyphs():
